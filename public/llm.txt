@@ -1,0 +1,31 @@
+# LLM.txt - AI Model Guidelines for Serban Affiliate Marketing
+
+## Site Purpose
+This is an affiliate marketing website focused on pay-per-call lead generation for local service businesses.
+
+## Content Guidelines
+- All content is designed to generate phone calls and form submissions
+- Local service focus with geographic targeting
+- Trust signals and social proof are prominently displayed
+- Mobile-first design optimized for quick conversions
+
+## Business Model
+- Revenue through affiliate commissions on phone calls and form submissions
+- Target audience: Local service businesses (pest control, HVAC, plumbing, etc.)
+- Geographic targeting based on ZIP codes and service areas
+
+## User Intent
+- Users are looking for immediate local service solutions
+- High urgency and need for quick response
+- Mobile users seeking instant contact options
+
+## Conversion Goals
+- Primary: Phone calls (tel: links)
+- Secondary: Form submissions for callbacks
+- Tertiary: Email capture for retargeting
+
+## Content Strategy
+- Local SEO optimization
+- Trust building through reviews and certifications
+- Urgency creation through limited-time offers
+- Social proof through testimonials and ratings 
