@@ -1,8 +1,16 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Analytics from './components/Analytics'
 
-const inter = Inter({ subsets: ['latin'] })
+// Optimize font loading
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: false,
+})
 
 export const metadata: Metadata = {
   title: {
@@ -81,9 +89,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preload critical resources */}
+        <link rel="preload" href="/favicon.ico" as="image" type="image/x-icon" />
+        <link rel="preload" href="/apple-touch-icon.png" as="image" type="image/png" />
+        
+        {/* DNS prefetch for external domains */}
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        
+        {/* Icons and manifest */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Meta tags */}
         <meta name="theme-color" content="#dc2626" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />
@@ -131,6 +154,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <Analytics />
         {children}
       </body>
     </html>

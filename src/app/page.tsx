@@ -14,6 +14,7 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <div className="text-lg font-bold">Your Local Pest Control</div>
             <a 
+              id="header-phone-call"
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}
               className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
             >
@@ -48,6 +49,7 @@ export default function Home() {
             {/* Primary CTA - Phone Call */}
             <div className="space-y-4">
               <a 
+                id="hero-phone-call"
                 href={`tel:${phoneNumber.replace(/\D/g, '')}`}
                 className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
               >
@@ -82,45 +84,53 @@ export default function Home() {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Services</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/services/bed-bug-treatment" className="group">
-              <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-red-600 font-bold text-lg">🛏️</span>
+            <div className="h-full">
+              <Link href="/services/bed-bug-treatment" className="group block h-full">
+                <div id="service-bed-bug-treatment" className="flex flex-col h-full bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-red-600 font-bold text-lg">🛏️</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Bed Bug Treatment</h3>
+                  <p className="text-gray-600 text-sm flex-grow">Complete elimination of bed bug infestations with proven methods</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Bed Bug Treatment</h3>
-                <p className="text-gray-600 text-sm">Complete elimination of bed bug infestations with proven methods</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
             
-            <Link href="/services/rodent-control" className="group">
-              <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-red-600 font-bold text-lg">🐭</span>
+            <div className="h-full">
+              <Link href="/services/rodent-control" className="group block h-full">
+                <div id="service-rodent-control" className="flex flex-col h-full bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-red-600 font-bold text-lg">🐭</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Rodent Control</h3>
+                  <p className="text-gray-600 text-sm flex-grow">Eliminate mice, rats and other rodents from your property</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Rodent Control</h3>
-                <p className="text-gray-600 text-sm">Eliminate mice, rats and other rodents from your property</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
             
-            <Link href="/services/termite-treatment" className="group">
-              <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-red-600 font-bold text-lg">🐜</span>
+            <div className="h-full">
+              <Link href="/services/termite-treatment" className="group block h-full">
+                <div id="service-termite-treatment" className="flex flex-col h-full bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-red-600 font-bold text-lg">🐜</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Termite Treatment</h3>
+                  <p className="text-gray-600 text-sm flex-grow">Protect your home from destructive termite damage</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Termite Treatment</h3>
-                <p className="text-gray-600 text-sm">Protect your home from destructive termite damage</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
             
-            <Link href="/services/general-pest-control" className="group">
-              <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-red-600 font-bold text-lg">🕷️</span>
+            <div className="h-full">
+              <Link href="/services/general-pest-control" className="group block h-full">
+                <div id="service-general-pest-control" className="flex flex-col h-full bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-red-600 font-bold text-lg">🕷️</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">General Pest Control</h3>
+                  <p className="text-gray-600 text-sm flex-grow">Comprehensive pest elimination and prevention services</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">General Pest Control</h3>
-                <p className="text-gray-600 text-sm">Comprehensive pest elimination and prevention services</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
 

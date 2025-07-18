@@ -13,6 +13,7 @@ export default function BedBugTreatment() {
           <div className="flex justify-between items-center">
             <div className="text-lg font-bold">Your Local Pest Control</div>
             <a 
+              id="bed-bug-header-phone-call"
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}
               className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
             >
@@ -72,6 +73,7 @@ export default function BedBugTreatment() {
             {/* Primary CTA */}
             <div className="space-y-4">
               <a 
+                id="bed-bug-hero-phone-call"
                 href={`tel:${phoneNumber.replace(/\D/g, '')}`}
                 className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
               >

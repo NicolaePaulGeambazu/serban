@@ -91,6 +91,7 @@ export default function Quiz() {
         </div>
 
         <a 
+          id="quiz-success-phone-call"
           href={`tel:${phoneNumber.replace(/\D/g, '')}`}
           className="inline-flex items-center gap-2 bg-red-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-red-700 transition-colors text-lg"
         >
@@ -157,9 +158,10 @@ export default function Quiz() {
                 '$75,000 - $100,000',
                 '$100,000 - $150,000',
                 'Over $150,000'
-              ].map((option) => (
+              ].map((option, index) => (
                 <button
                   key={option}
+                  id={`quiz-income-option-${index + 1}`}
                   onClick={() => handleInputChange('income', option)}
                   className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                     quizData.income === option
@@ -182,6 +184,7 @@ export default function Quiz() {
             <h3 className="text-xl font-bold text-black mb-2">What's your ZIP code?</h3>
             <p className="text-sm text-gray-600 mb-4">We'll check if we service your area</p>
             <input
+              id="quiz-zipcode-input"
               type="text"
               value={quizData.zipcode}
               onChange={(e) => {
@@ -215,6 +218,7 @@ export default function Quiz() {
 
             <div className="space-y-3">
               <button
+                id="quiz-connect-yes"
                 onClick={() => handleInputChange('connectNow', true)}
                 className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                   quizData.connectNow === true
@@ -231,6 +235,7 @@ export default function Quiz() {
                 </div>
               </button>
               <button
+                id="quiz-connect-no"
                 onClick={() => handleInputChange('connectNow', false)}
                 className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                   quizData.connectNow === false
@@ -255,6 +260,7 @@ export default function Quiz() {
       <div className="flex justify-between mt-8">
         {step > 1 && (
           <button
+            id="quiz-back-button"
             onClick={() => setStep(step - 1)}
             className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-colors"
           >
@@ -263,6 +269,7 @@ export default function Quiz() {
         )}
         
         <button
+          id={step === 3 ? "quiz-submit-button" : "quiz-next-button"}
           onClick={handleNext}
           disabled={
             (step === 1 && !quizData.income) ||
