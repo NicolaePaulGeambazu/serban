@@ -1,5 +1,6 @@
 import { Phone, Clock, MapPin, User } from 'lucide-react'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Schedule a Callback - Free Pest Control Estimate',
@@ -20,10 +21,17 @@ export default function CallbackPage() {
       <header className="bg-red-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <div className="text-lg font-bold">Your Local Pest Control</div>
+            <div className="flex items-center">
+              <Image 
+                src="/logo.png?v=2" 
+                alt="Callhomefixer Logo" 
+                width={58} 
+                height={48}
+              />
+            </div>
             <a 
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
             >
               <Phone className="w-5 h-5" />
               {phoneNumber}
@@ -40,7 +48,7 @@ export default function CallbackPage() {
               Schedule Your Free Callback
             </h1>
             <p className="text-xl text-gray-600 mb-6">
-              We&apos;ll call you back within 30 minutes for your free pest control estimate
+              Prefer to schedule a callback? Fill out our quick form below. NOTE: due to high demand we recommend you call now since we might not be able to get back to you
             </p>
             <div className="flex items-center justify-center gap-2 text-green-600 font-semibold">
               <Clock className="w-5 h-5" />
@@ -118,12 +126,12 @@ export default function CallbackPage() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
                 >
                   <option value="">Select a service</option>
-                  <option value="bed-bugs">Bed Bug Treatment</option>
+                  <option value="cockroaches">Cockroach Control</option>
                   <option value="rodents">Rodent Control</option>
                   <option value="termites">Termite Treatment</option>
                   <option value="general">General Pest Control</option>
                   <option value="fleas">Flea Treatment</option>
-                  <option value="cockroaches">Cockroach Control</option>
+                  <option value="bed-bugs">Bed Bug Treatment</option>
                   <option value="ants">Ant Control</option>
                   <option value="bees-wasps">Bee & Wasp Removal</option>
                   <option value="wildlife">Wildlife Removal</option>

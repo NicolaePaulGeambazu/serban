@@ -1,7 +1,11 @@
-import { Phone, Shield, Clock, CheckCircle, Star, MapPin } from 'lucide-react'
+import { Phone, Shield, Clock, CheckCircle, MapPin } from 'lucide-react'
+import { cookies } from 'next/headers';
 import Quiz from '../../components/Quiz'
+import Image from 'next/image'
 
-export default function RodentControl() {
+export default async function RodentControl() {
+  const cookieStore = await cookies();
+  const variant = cookieStore.get('split-test-variant')?.value;
   const phoneNumber = "(888) 888-8888"
   const serviceArea = "Serving Dhaka, C and the surrounding area"
   
@@ -11,10 +15,18 @@ export default function RodentControl() {
       <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <div className="text-lg font-bold">Your Local Pest Control</div>
+            <div className="flex items-center">
+              <Image 
+                src="/logo.png?v=2" 
+                alt="Callhomefixer Logo" 
+                width={58} 
+                height={48}
+              />
+            </div>
             <a 
+              id="rodent-header-phone-call"
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
             >
               <Phone className="w-5 h-5" />
               {phoneNumber}
@@ -42,7 +54,7 @@ export default function RodentControl() {
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                Rodents can cause serious damage to your property and pose health risks to your family. Our expert technicians provide comprehensive rodent control solutions that eliminate current infestations and prevent future problems.
+                Don't let rodents take over your home! Our expert technicians use proven methods to completely eliminate mice, rats, and other rodent infestations. We offer comprehensive treatment plans that target all rodent species.
               </p>
             </div>
 
@@ -52,19 +64,19 @@ export default function RodentControl() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Complete elimination of mice, rats, and other rodents</span>
+                  <span className="text-gray-700">Complete elimination of all rodent species</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Prevention strategies to keep rodents out</span>
+                  <span className="text-gray-700">Safe for your family and pets</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Safe and humane treatment methods</span>
+                  <span className="text-gray-700">Follow-up inspection included</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Ongoing monitoring and maintenance</span>
+                  <span className="text-gray-700">Warranty on all treatments</span>
                 </div>
               </div>
             </div>
@@ -72,6 +84,7 @@ export default function RodentControl() {
             {/* Primary CTA */}
             <div className="space-y-4">
               <a 
+                id="rodent-hero-phone-call"
                 href={`tel:${phoneNumber.replace(/\D/g, '')}`}
                 className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
               >
@@ -84,13 +97,8 @@ export default function RodentControl() {
                 <div className="text-lg font-bold text-gray-900 mb-2">
                   TRUSTED LOCAL BUSINESS
                 </div>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-green-500 text-green-500" />
-                    ))}
-                  </div>
-                  <span className="text-green-600 font-semibold">TrustScore 9.6 | 279 reviews</span>
+                <div className="text-green-600 font-semibold">
+                  Licensed & Insured Professionals
                 </div>
               </div>
             </div>
@@ -98,7 +106,7 @@ export default function RodentControl() {
 
           {/* Right Quiz Section */}
           <div className="lg:sticky lg:top-24">
-            <Quiz />
+            {variant === 'A' && <Quiz />}
           </div>
         </div>
 
@@ -131,15 +139,6 @@ export default function RodentControl() {
             </div>
           </div>
         </div>
-
-        {/* Service Areas */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Service Areas</h2>
-          <div className="flex items-center justify-center gap-2 text-lg text-gray-600">
-            <MapPin className="w-5 h-5" />
-            <span>{serviceArea}</span>
-          </div>
-        </div>
       </main>
 
       {/* Footer */}
@@ -158,14 +157,14 @@ export default function RodentControl() {
               <div className="space-y-2 text-gray-300">
                 <p>Phone: {phoneNumber}</p>
                 <p>24/7 Emergency Service</p>
-                <p>Free Estimates</p>
+                <p>Free Inspection</p>
               </div>
             </div>
             
             <div>
               <h3 className="text-xl font-bold mb-4">Services</h3>
               <div className="space-y-2 text-gray-300">
-                <p>• Bed Bug Treatment</p>
+                <p>• Cockroach Control</p>
                 <p>• Rodent Control</p>
                 <p>• Termite Treatment</p>
                 <p>• General Pest Control</p>

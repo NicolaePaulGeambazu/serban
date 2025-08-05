@@ -1,7 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import { CheckCircle, Loader2, Phone, Star, Clock, Shield } from 'lucide-react'
+import { useState, useEffect, ChangeEvent, KeyboardEvent } from 'react'
+import { CheckCircle } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { Star } from 'lucide-react';
+import { Clock } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 interface QuizData {
   income: string
@@ -18,6 +23,16 @@ export default function Quiz() {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [isQualified, setIsQualified] = useState(false)
+  const [zipError, setZipError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (isQualified) {
+      // Set quiz-completed cookie for 180 days
+      const expires = new Date();
+      expires.setTime(expires.getTime() + 1000 * 60 * 60 * 24 * 180);
+      document.cookie = `quiz-completed=true; expires=${expires.toUTCString()}; path=/; samesite=lax`;
+    }
+  }, [isQualified]);
 
   const handleNext = () => {
     if (step < 3) {
@@ -39,6 +54,16 @@ export default function Quiz() {
 
   const handleInputChange = (field: keyof QuizData, value: string | boolean) => {
     setQuizData(prev => ({ ...prev, [field]: value }))
+    if (field === 'zipcode') {
+      // Validate ZIP code on change
+      if (typeof value === 'string' && value.length === 5 && /^\d{5}$/.test(value)) {
+        setZipError(null)
+      } else if (typeof value === 'string' && value.length > 0) {
+        setZipError('Please enter a valid 5-digit ZIP code')
+      } else {
+        setZipError(null)
+      }
+    }
   }
 
   const phoneNumber = "(888) 888-8888"
@@ -187,14 +212,18 @@ export default function Quiz() {
               id="quiz-zipcode-input"
               type="text"
               value={quizData.zipcode}
-              onChange={(e) => {
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 const value = e.target.value.replace(/\D/g, '').slice(0, 5)
                 handleInputChange('zipcode', value)
               }}
               placeholder="Enter your 5-digit ZIP code"
-              className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-red-600 focus:outline-none text-black text-center text-lg font-medium"
+              className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-red-600 focus:outline-none text-black text-center text-lg font-medium focus:ring-2 focus:ring-red-500"
               maxLength={5}
+              aria-label="ZIP code"
+              inputMode="numeric"
+              pattern="[0-9]*"
             />
+            {zipError && <p className="text-xs text-red-600 mt-2 text-center" role="alert">{zipError}</p>}
             <p className="text-xs text-gray-500 mt-2 text-center">We'll verify service availability in your area</p>
           </div>
         </div>
@@ -257,29 +286,32 @@ export default function Quiz() {
       )}
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-8">
-        {step > 1 && (
-          <button
-            id="quiz-back-button"
-            onClick={() => setStep(step - 1)}
-            className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-colors"
-          >
-            ← Back
-          </button>
-        )}
-        
+      <div className="flex flex-col gap-3 mt-8">
         <button
           id={step === 3 ? "quiz-submit-button" : "quiz-next-button"}
           onClick={handleNext}
           disabled={
             (step === 1 && !quizData.income) ||
-            (step === 2 && !quizData.zipcode) ||
+            (step === 2 && (!quizData.zipcode || !!zipError)) ||
             (step === 3 && quizData.connectNow === undefined)
           }
-          className="ml-auto px-8 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed font-semibold shadow-md"
+          className="w-full px-8 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          aria-label={step === 3 ? 'Submit Quiz' : 'Continue to Next Step'}
+          role="button"
         >
           {step === 3 ? 'Check Eligibility →' : 'Continue →'}
         </button>
+        {step > 1 && (
+          <button
+            id="quiz-back-button"
+            onClick={() => setStep(step - 1)}
+            className="w-full px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+            aria-label="Go Back"
+            role="button"
+          >
+            ← Back
+          </button>
+        )}
       </div>
 
       {/* Trust Footer */}

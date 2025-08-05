@@ -1,7 +1,11 @@
-import { Phone, Shield, Clock, CheckCircle, Star, MapPin } from 'lucide-react'
+import { Phone, Shield, Clock, CheckCircle, MapPin } from 'lucide-react'
+import { cookies } from 'next/headers';
 import Quiz from '../../components/Quiz'
+import Image from 'next/image'
 
-export default function TermiteTreatment() {
+export default async function TermiteTreatment() {
+  const cookieStore = await cookies();
+  const variant = cookieStore.get('split-test-variant')?.value;
   const phoneNumber = "(888) 888-8888"
   const serviceArea = "Serving Dhaka, C and the surrounding area"
   
@@ -11,10 +15,18 @@ export default function TermiteTreatment() {
       <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <div className="text-lg font-bold">Your Local Pest Control</div>
+            <div className="flex items-center">
+              <Image 
+                src="/logo.png?v=2" 
+                alt="Callhomefixer Logo" 
+                width={58} 
+                height={48}
+              />
+            </div>
             <a 
+              id="termite-header-phone-call"
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
             >
               <Phone className="w-5 h-5" />
               {phoneNumber}
@@ -42,7 +54,7 @@ export default function TermiteTreatment() {
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                Termites can cause devastating damage to your home's structure. Our expert technicians provide comprehensive termite treatment and prevention services to protect your investment and give you peace of mind.
+                Don't let termites destroy your home! Our expert technicians use proven methods to completely eliminate termite infestations and protect your property. We offer comprehensive treatment plans that target all termite species.
               </p>
             </div>
 
@@ -52,19 +64,19 @@ export default function TermiteTreatment() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Complete termite colony elimination</span>
+                  <span className="text-gray-700">Complete elimination of all termite species</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Preventive barrier treatments</span>
+                  <span className="text-gray-700">Safe for your family and pets</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Annual inspection and monitoring</span>
+                  <span className="text-gray-700">Follow-up inspection included</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">Transferable warranty protection</span>
+                  <span className="text-gray-700">Warranty on all treatments</span>
                 </div>
               </div>
             </div>
@@ -72,6 +84,7 @@ export default function TermiteTreatment() {
             {/* Primary CTA */}
             <div className="space-y-4">
               <a 
+                id="termite-hero-phone-call"
                 href={`tel:${phoneNumber.replace(/\D/g, '')}`}
                 className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
               >
@@ -84,13 +97,8 @@ export default function TermiteTreatment() {
                 <div className="text-lg font-bold text-gray-900 mb-2">
                   TRUSTED LOCAL BUSINESS
                 </div>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-green-500 text-green-500" />
-                    ))}
-                  </div>
-                  <span className="text-green-600 font-semibold">TrustScore 9.6 | 279 reviews</span>
+                <div className="text-green-600 font-semibold">
+                  Licensed & Insured Professionals
                 </div>
               </div>
             </div>
@@ -98,7 +106,7 @@ export default function TermiteTreatment() {
 
           {/* Right Quiz Section */}
           <div className="lg:sticky lg:top-24">
-            <Quiz />
+            {variant === 'A' && <Quiz />}
           </div>
         </div>
 
@@ -111,7 +119,7 @@ export default function TermiteTreatment() {
                 <span className="text-2xl font-bold text-red-600">1</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900">Inspection</h3>
-              <p className="text-gray-600">Comprehensive inspection to identify termite activity and damage assessment</p>
+              <p className="text-gray-600">Thorough inspection to identify termite activity and damage assessment</p>
             </div>
             
             <div className="text-center space-y-4">
@@ -119,25 +127,16 @@ export default function TermiteTreatment() {
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900">Treatment</h3>
-              <p className="text-gray-600">Professional application of termite control products and barrier treatments</p>
+              <p className="text-gray-600">Professional application of effective treatments to eliminate termites</p>
             </div>
             
             <div className="text-center space-y-4">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
                 <span className="text-2xl font-bold text-green-600">3</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Protection</h3>
-              <p className="text-gray-600">Ongoing monitoring and preventive measures to protect your home</p>
+              <h3 className="text-xl font-bold text-gray-900">Prevention</h3>
+              <p className="text-gray-600">Install barriers and implement prevention strategies to protect your home</p>
             </div>
-          </div>
-        </div>
-
-        {/* Service Areas */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Service Areas</h2>
-          <div className="flex items-center justify-center gap-2 text-lg text-gray-600">
-            <MapPin className="w-5 h-5" />
-            <span>{serviceArea}</span>
           </div>
         </div>
       </main>
@@ -158,14 +157,14 @@ export default function TermiteTreatment() {
               <div className="space-y-2 text-gray-300">
                 <p>Phone: {phoneNumber}</p>
                 <p>24/7 Emergency Service</p>
-                <p>Free Estimates</p>
+                <p>Free Inspection</p>
               </div>
             </div>
             
             <div>
               <h3 className="text-xl font-bold mb-4">Services</h3>
               <div className="space-y-2 text-gray-300">
-                <p>• Bed Bug Treatment</p>
+                <p>• Cockroach Control</p>
                 <p>• Rodent Control</p>
                 <p>• Termite Treatment</p>
                 <p>• General Pest Control</p>
