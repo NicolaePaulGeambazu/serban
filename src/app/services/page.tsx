@@ -1,5 +1,6 @@
 import { Phone, Shield, Clock, CheckCircle, Bug, Rat, Home, Leaf } from 'lucide-react'
 import type { Metadata } from 'next'
+import Header from '../components/Header'
 
 export const metadata: Metadata = {
   title: 'Pest Control Services - Bed Bugs, Rodents, Termites & More',
@@ -43,21 +44,7 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-bold">Your Local Pest Control</div>
-            <a 
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              {phoneNumber}
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header phoneNumber={phoneNumber} />
 
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}

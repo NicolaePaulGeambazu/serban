@@ -1,5 +1,6 @@
 import { Phone, Shield, Clock, CheckCircle, Star, MapPin } from 'lucide-react'
 import Quiz from '../../components/Quiz'
+import Header from '../../components/Header'
 
 export default function BedBugTreatment() {
   const phoneNumber = "(888) 888-8888"

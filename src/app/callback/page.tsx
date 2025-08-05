@@ -1,5 +1,6 @@
 import { Phone, Clock, MapPin, User } from 'lucide-react'
 import type { Metadata } from 'next'
+import Header from '../components/Header'
 
 export const metadata: Metadata = {
   title: 'Schedule a Callback - Free Pest Control Estimate',
@@ -16,21 +17,7 @@ export default function CallbackPage() {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-red-600 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-bold">Your Local Pest Control</div>
-            <a 
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              {phoneNumber}
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header phoneNumber={phoneNumber} />
 
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">

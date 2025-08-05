@@ -1,6 +1,7 @@
 import { Phone, Shield, Calculator, Leaf, Star, Clock, MapPin, CheckCircle } from 'lucide-react'
 import Quiz from './components/Quiz'
 import Link from 'next/link'
+import Header from './components/Header'
 
 export default function Home() {
   const phoneNumber = "(888) 888-8888"
@@ -8,22 +9,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Header with Phone Number */}
-      <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <div className="text-lg font-bold">Your Local Pest Control</div>
-            <a 
-              id="header-phone-call"
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              {phoneNumber}
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header phoneNumber={phoneNumber} />
 
       {/* Main Hero Section */}
       <main className="container mx-auto px-4 py-8">
