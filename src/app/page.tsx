@@ -7,8 +7,8 @@ import { MapPin } from 'lucide-react';
 import { CheckCircle } from 'lucide-react';
 import { cookies } from 'next/headers';
 import Link from 'next/link'
-import Image from 'next/image'
 import QuizClientDynamicWrapper from './components/QuizClientDynamicWrapper'
+import Logo from './components/Logo'
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -21,16 +21,8 @@ export default async function Home() {
       {/* Sticky Header with Phone Number */}
       <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <Image 
-                src="/logo.png?v=2" 
-                alt="Callhomefixer Logo" 
-                width={80} 
-                height={66}
-                className="h-12 w-auto"
-              />
-            </div>
+          <div className="flex justify-between items-center h-[60px]">
+            <Logo size="md" />
             <a 
               id="header-phone-call"
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}

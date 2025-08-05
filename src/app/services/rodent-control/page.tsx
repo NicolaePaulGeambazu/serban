@@ -1,7 +1,7 @@
 import { Phone, Shield, Clock, CheckCircle, MapPin } from 'lucide-react'
 import { cookies } from 'next/headers';
 import Quiz from '../../components/Quiz'
-import Image from 'next/image'
+import Logo from '../../components/Logo'
 
 export default async function RodentControl() {
   const cookieStore = await cookies();
@@ -15,14 +15,7 @@ export default async function RodentControl() {
       <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <Image 
-                src="/logo.png?v=2" 
-                alt="Callhomefixer Logo" 
-                width={58} 
-                height={48}
-              />
-            </div>
+            <Logo size="md" />
             <a 
               id="rodent-header-phone-call"
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}

@@ -160,6 +160,28 @@ html {
   }
 }
 
+/* Logo styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom height classes for logo sizing */
+.h-17 {
+  height: 4.25rem; /* 68px - 40% increase from h-12 (48px) */
+}
+
+.h-22 {
+  height: 5.5rem; /* 88px - 40% increase from h-16 (64px) */
+}
+
 /* Call-to-action emphasis */
 .cta-emphasis {
   font-size: 1.5rem;

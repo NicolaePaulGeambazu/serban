@@ -1,6 +1,6 @@
 import { Phone, Clock, MapPin, User } from 'lucide-react'
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import Logo from '../components/Logo'
 
 export const metadata: Metadata = {
   title: 'Schedule a Callback - Free Pest Control Estimate',
@@ -21,14 +21,7 @@ export default function CallbackPage() {
       <header className="bg-red-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <Image 
-                src="/logo.png?v=2" 
-                alt="Callhomefixer Logo" 
-                width={58} 
-                height={48}
-              />
-            </div>
+            <Logo size="md" />
             <a 
               href={`tel:${phoneNumber.replace(/\D/g, '')}`}
               className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
