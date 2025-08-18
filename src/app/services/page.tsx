@@ -1,14 +1,14 @@
 import { Phone, Shield, Clock, CheckCircle, Bug, Rat, Home, Leaf } from 'lucide-react'
 import type { Metadata } from 'next'
-import Logo from '../components/Logo'
+import Header from '../components/Header'
 
 export const metadata: Metadata = {
-  title: 'Pest Control Services - Cockroaches, Rodents, Termites & More',
-  description: 'Professional pest control services including cockroach control, rodent control, termite treatment, and general pest control. Free inspection and 24/7 service.',
-  keywords: ['pest control services', 'cockroach control', 'rodent control', 'termite treatment', 'pest exterminator'],
+  title: 'Pest Control Services - Bed Bugs, Rodents, Termites & More',
+  description: 'Professional pest control services including bed bug treatment, rodent control, termite treatment, and general pest control. Free estimates and 24/7 service.',
+  keywords: ['pest control services', 'bed bug treatment', 'rodent control', 'termite treatment', 'pest exterminator'],
   openGraph: {
-    title: 'Pest Control Services - Cockroaches, Rodents, Termites & More',
-    description: 'Professional pest control services including cockroach control, rodent control, termite treatment, and general pest control.',
+    title: 'Pest Control Services - Bed Bugs, Rodents, Termites & More',
+    description: 'Professional pest control services including bed bug treatment, rodent control, termite treatment, and general pest control.',
   },
 }
 
@@ -18,8 +18,8 @@ export default function ServicesPage() {
   const services = [
     {
       icon: Bug,
-      title: "Cockroach Control",
-      description: "Complete cockroach elimination with heat treatment and chemical solutions. 100% guaranteed results.",
+      title: "Bed Bug Treatment",
+      description: "Complete bed bug elimination with heat treatment and chemical solutions. 100% guaranteed results.",
       features: ["Heat treatment", "Chemical treatment", "Follow-up inspection", "Guaranteed results"]
     },
     {
@@ -37,28 +37,14 @@ export default function ServicesPage() {
     {
       icon: Leaf,
       title: "General Pest Control",
-      description: "Complete pest control solutions for ants, spiders, fleas, and other common pests.",
+      description: "Complete pest control solutions for ants, cockroaches, spiders, and other common pests.",
       features: ["Regular treatments", "Eco-friendly options", "Customized plans", "Emergency service"]
     }
   ]
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <Logo size="md" />
-            <a 
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
-            >
-              <Phone className="w-5 h-5" />
-              {phoneNumber}
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header phoneNumber={phoneNumber} />
 
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
@@ -74,7 +60,7 @@ export default function ServicesPage() {
             className="inline-flex items-center gap-2 bg-red-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-red-700 transition-colors text-lg"
           >
             <Phone className="w-5 h-5" />
-            Call for Free Inspection
+            Call for Free Estimate
           </a>
         </div>
 
@@ -180,14 +166,14 @@ export default function ServicesPage() {
               <div className="space-y-2 text-gray-300">
                 <p>Phone: {phoneNumber}</p>
                 <p>24/7 Emergency Service</p>
-                <p>Free Inspection</p>
+                <p>Free Estimates</p>
               </div>
             </div>
             
             <div>
               <h3 className="text-xl font-bold mb-4">Services</h3>
               <div className="space-y-2 text-gray-300">
-                <p>• Cockroach Control</p>
+                <p>• Bed Bug Treatment</p>
                 <p>• Rodent Control</p>
                 <p>• Termite Treatment</p>
                 <p>• General Pest Control</p>

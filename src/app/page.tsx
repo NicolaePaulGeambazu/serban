@@ -1,126 +1,70 @@
-import { Phone } from 'lucide-react';
-import { Shield } from 'lucide-react';
-import { Calculator } from 'lucide-react';
-import { Leaf } from 'lucide-react';
-import { Clock } from 'lucide-react';
-import { MapPin } from 'lucide-react';
-import { CheckCircle } from 'lucide-react';
-import { cookies } from 'next/headers';
+import { Phone, Shield, Calculator, Leaf, Star, Clock, MapPin, CheckCircle } from 'lucide-react'
+import Quiz from './components/Quiz'
 import Link from 'next/link'
-import QuizClientDynamicWrapper from './components/QuizClientDynamicWrapper'
-import Logo from './components/Logo'
+import Header from './components/Header'
 
-export default async function Home() {
-  const cookieStore = await cookies();
-  const variant = cookieStore.get('split-test-variant')?.value;
+export default function Home() {
   const phoneNumber = "(888) 888-8888"
   const serviceArea = "Serving Dhaka, C and the surrounding area"
   
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Header with Phone Number */}
-      <header className="sticky top-0 z-50 bg-red-600 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center h-[60px]">
-            <Logo size="md" />
-            <a 
-              id="header-phone-call"
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="flex items-center gap-2 bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
-            >
-              <Phone className="w-5 h-5" />
-              {phoneNumber}
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header phoneNumber={phoneNumber} />
 
       {/* Main Hero Section */}
       <main className="container mx-auto px-4 py-8">
-        {variant === 'A' ? (
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Left Content */}
-            <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Call Home Fixer
-              </h1>
-              
-              <h2 className="text-2xl lg:text-3xl font-bold text-red-600">
-                Call For A Free Pest Inspection & Estimate
-              </h2>
-              
-              <p className="text-xl font-bold text-gray-900">
-                {serviceArea}
-              </p>
-              
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Local Pest Control Pros specialized in residential and commercial treatments for cockroaches, rodents, termites & fleas, mosquitos, ant infestations, bee&apos;s & wasp removal, wildlife extraction and more!
-              </p>
-
-              {/* Primary CTA - Phone Call */}
-              <div className="space-y-4">
-                <a 
-                  id="hero-phone-call"
-                  href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-                  className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
-                >
-                  <Phone className="w-8 h-8" />
-                  {phoneNumber}
-                </a>
-                
-                {/* Trust Indicators */}
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="text-lg font-bold text-gray-900 mb-2">
-                    TRUSTED LOCAL BUSINESS
-                  </div>
-                  <div className="text-green-600 font-semibold">
-                    Licensed & Insured Professionals
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Quiz Section */}
-            <div className="lg:sticky lg:top-24">
-              {variant === 'A' && <QuizClientDynamicWrapper />}
-            </div>
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center text-center space-y-6 w-full max-w-2xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Left Content */}
+          <div className="space-y-6">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Call Home Fixer
+              Your Local Pest Control
             </h1>
+            
             <h2 className="text-2xl lg:text-3xl font-bold text-red-600">
               Call For A Free Pest Inspection & Estimate
             </h2>
+            
             <p className="text-xl font-bold text-gray-900">
               {serviceArea}
             </p>
+            
             <p className="text-lg text-gray-700 leading-relaxed">
-              Local Pest Control Pros specialized in residential and commercial treatments for cockroaches, rodents, termites & fleas, mosquitos, ant infestations, bee&apos;s & wasp removal, wildlife extraction and more!
+              Local Pest Control Pros specialized in residential and commercial treatments for bed bugs, rodents, termites & fleas, cockroaches, mosquitos, ant infestations, bee&apos;s & wasp removal, wildlife extraction and more!
             </p>
+
             {/* Primary CTA - Phone Call */}
-            <div className="space-y-4 w-full">
+            <div className="space-y-4">
               <a 
                 id="hero-phone-call"
                 href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-                className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full"
+                className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
               >
                 <Phone className="w-8 h-8" />
                 {phoneNumber}
               </a>
+              
               {/* Trust Indicators */}
               <div className="bg-gray-50 p-4 rounded-lg">
                 <div className="text-lg font-bold text-gray-900 mb-2">
                   TRUSTED LOCAL BUSINESS
                 </div>
-                <div className="text-green-600 font-semibold">
-                  Licensed & Insured Professionals
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-green-500 text-green-500" />
+                    ))}
+                  </div>
+                  <span className="text-green-600 font-semibold">TrustScore 9.6 | 279 reviews</span>
                 </div>
               </div>
             </div>
           </div>
-        )}
+
+          {/* Right Quiz Section */}
+          <div className="lg:sticky lg:top-24">
+            <Quiz />
+          </div>
+        </div>
 
         {/* Services Section */}
         <div className="mt-16">
@@ -130,10 +74,10 @@ export default async function Home() {
               <Link href="/services/bed-bug-treatment" className="group block h-full">
                 <div id="service-bed-bug-treatment" className="flex flex-col h-full bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all duration-200 group-hover:scale-105">
                   <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="text-red-600 font-bold text-lg">🪳</span>
+                    <span className="text-red-600 font-bold text-lg">🛏️</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Cockroach Control</h3>
-                  <p className="text-gray-600 text-sm flex-grow">Complete elimination of cockroach infestations with proven methods</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Bed Bug Treatment</h3>
+                  <p className="text-gray-600 text-sm flex-grow">Complete elimination of bed bug infestations with proven methods</p>
                 </div>
               </Link>
             </div>
@@ -190,7 +134,7 @@ export default async function Home() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
               <Calculator className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900">FREE INSPECTION</h3>
+            <h3 className="text-xl font-bold text-gray-900">FREE ESTIMATES</h3>
             <p className="text-gray-600">No obligation quotes and transparent pricing</p>
           </div>
           
@@ -241,9 +185,9 @@ export default async function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Need a Callback Instead?
           </h2>
-          <p className="text-lg text-gray-600 mb-6">
-            Prefer to schedule a callback? Fill out our quick form below. NOTE: due to high demand we recommend you call now since we might not be able to get back to you
-          </p>
+                      <p className="text-lg text-gray-600 mb-6">
+              Prefer to schedule a callback? Fill out our quick form and we&apos;ll call you back within 30 minutes.
+            </p>
           <a 
             href="/callback"
             className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition-colors"
@@ -253,12 +197,31 @@ export default async function Home() {
           </a>
         </div>
 
+        {/* Service Areas */}
+        <div className="mt-16 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Service Areas</h2>
+          <div className="flex items-center justify-center gap-2 text-lg text-gray-600">
+            <MapPin className="w-5 h-5" />
+            <span>{serviceArea}</span>
+          </div>
+        </div>
+
         {/* Disclaimer */}
         <div className="mt-16 bg-gray-100 rounded-lg p-6">
           <h3 className="text-lg font-bold text-gray-900 mb-4">Disclaimer</h3>
           <div className="text-sm text-gray-600 space-y-2">
             <p>
-              Disclaimer: Callhomefixer.com is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Callhomefixer.com does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Callhomefixer.com.
+              This website is for informational purposes only. Results may vary based on individual circumstances. 
+              Free estimates are subject to availability and may require an on-site inspection. 
+              All services are provided by licensed professionals in accordance with local regulations.
+            </p>
+            <p>
+              Emergency services are available 24/7 but response times may vary based on location and current demand. 
+              Pricing is subject to change without notice. Contact us for current rates and availability.
+            </p>
+            <p>
+              This is an affiliate marketing website. We may receive compensation for referrals to local service providers. 
+              All service providers are independently owned and operated.
             </p>
           </div>
         </div>
@@ -280,14 +243,14 @@ export default async function Home() {
               <div className="space-y-2 text-gray-300">
                 <p>Phone: {phoneNumber}</p>
                 <p>24/7 Emergency Service</p>
-                <p>Free Inspection</p>
+                <p>Free Estimates</p>
               </div>
             </div>
             
             <div>
               <h3 className="text-xl font-bold mb-4">Services</h3>
               <div className="space-y-2 text-gray-300">
-                <p>• Cockroach Control</p>
+                <p>• Bed Bug Treatment</p>
                 <p>• Rodent Control</p>
                 <p>• Termite Treatment</p>
                 <p>• General Pest Control</p>
