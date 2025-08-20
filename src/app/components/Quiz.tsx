@@ -2,7 +2,6 @@
 
 import { useState, useEffect, ChangeEvent, KeyboardEvent } from 'react'
 import { CheckCircle } from 'lucide-react';
-import { Loader2 } from 'lucide-react';
 import { Phone } from 'lucide-react';
 import { Star } from 'lucide-react';
 import { Clock } from 'lucide-react';
@@ -169,24 +168,28 @@ export default function Quiz() {
         </div>
       </div>
 
-      {/* Step 1: Income - Optimized for USA */}
+      {/* Step 1: Pest Selection */}
       {step === 1 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-black mb-2">What is your annual household income?</h3>
-            <p className="text-sm text-gray-600 mb-4">This helps us determine your eligibility for our services</p>
+            <h3 className="text-xl font-bold text-black mb-2">What pest are you dealing with?</h3>
+            <p className="text-sm text-gray-600 mb-4">This helps us match you with the right treatment</p>
             <div className="space-y-3">
               {[
-                'Under $30,000',
-                '$30,000 - $50,000',
-                '$50,000 - $75,000',
-                '$75,000 - $100,000',
-                '$100,000 - $150,000',
-                'Over $150,000'
+                'Ants',
+                'Spiders',
+                'Cockroaches',
+                'House Crickets',
+                'Earwigs',
+                'Silverfish',
+                'Clothes Moths',
+                'Centipedes',
+                'Millipedes',
+                'Termites'
               ].map((option, index) => (
                 <button
                   key={option}
-                  id={`quiz-income-option-${index + 1}`}
+                  id={`quiz-pest-option-${index + 1}`}
                   onClick={() => handleInputChange('income', option)}
                   className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
                     quizData.income === option
@@ -260,23 +263,6 @@ export default function Quiz() {
                   <div>
                     <div className="font-semibold">Yes, connect me now</div>
                     <div className="text-sm text-gray-600">Speak with an agent immediately</div>
-                  </div>
-                </div>
-              </button>
-              <button
-                id="quiz-connect-no"
-                onClick={() => handleInputChange('connectNow', false)}
-                className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
-                  quizData.connectNow === false
-                    ? 'border-red-600 bg-red-50 text-red-600 shadow-md'
-                    : 'border-gray-200 hover:border-gray-300 text-black hover:shadow-sm'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5" />
-                  <div>
-                    <div className="font-semibold">No, I'll call later</div>
-                    <div className="text-sm text-gray-600">I'll contact you when convenient</div>
                   </div>
                 </div>
               </button>

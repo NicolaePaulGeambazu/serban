@@ -14,15 +14,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Your Local Pest Control - Free Inspection & Estimate | (888) 888-8888',
+    default: 'Local Pest Control - Free Inspection | (888) 888-8888',
     template: '%s | Serban Local Services'
   },
-  description: 'Local pest control experts serving your area. Free inspection & estimate. Call (888) 888-8888 now for immediate service. Licensed and insured professionals.',
+  description: 'Local pest control experts serving your area. Free inspection. Call (888) 888-8888 now for immediate service. Licensed and insured professionals.',
   keywords: [
     'pest control',
     'local pest control',
     'free pest inspection',
-    'pest control estimate',
     'cockroaches',
     'rodents',
     'termites',
@@ -42,8 +41,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Your Local Pest Control - Free Inspection & Estimate',
-    description: 'Local pest control experts serving your area. Free inspection & estimate. Call (888) 888-8888 now for immediate service.',
+    title: 'Local Pest Control - Free Inspection',
+    description: 'Local pest control experts serving your area. Free inspection. Call (888) 888-8888 now for immediate service.',
     url: 'https://serban-affiliate.com',
     siteName: 'Serban Local Services',
     images: [
@@ -59,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Your Local Pest Control - Free Inspection & Estimate',
-    description: 'Local pest control experts serving your area. Free inspection & estimate.',
+    title: 'Local Pest Control - Free Inspection',
+    description: 'Local pest control experts serving your area. Free inspection.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -110,7 +109,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#dc2626" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="description" content="Local pest control experts serving your area. Free inspection & estimate. Call (888) 888-8888 now for immediate service. Licensed and insured professionals." />
+        <meta name="description" content="Local pest control experts serving your area. Free inspection. Call (888) 888-8888 now for immediate service. Licensed and insured professionals." />
         
         {/* Schema.org structured data */}
         <script
@@ -119,8 +118,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Your Local Pest Control",
-              "description": "Local pest control experts serving your area with free inspections and estimates.",
+              "name": "Local Pest Control",
+              "description": "Local pest control experts serving your area with free inspections.",
               "url": "https://serban-affiliate.com",
               "telephone": "+1-888-888-8888",
               "address": {
@@ -136,15 +135,7 @@ export default function RootLayout({
               },
               "openingHours": "Mo-Su 00:00-23:59",
               "priceRange": "$$",
-              "serviceArea": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
-                  "@type": "GeoCoordinates",
-                  "latitude": "YOUR_LATITUDE",
-                  "longitude": "YOUR_LONGITUDE"
-                },
-                "geoRadius": "50000"
-              }
+              
             })
           }}
         />

@@ -15,7 +15,7 @@ export default function Header({ phoneNumber = "(888) 888-8888" }: HeaderProps) 
           <div className="flex items-center">
             <Image 
               src="/logo.jpeg" 
-              alt="Your Local Pest Control" 
+              alt="Local Pest Control" 
               width={140} 
               height={40} 
               className="object-contain"
