@@ -1,10 +1,10 @@
 // Tracking Configuration
 export const TRACKING_CONFIG = {
   // Google Analytics 4
-  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX',
+  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-GELQMHJ1E2',
   
   // Google Tag Manager
-  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX',
+  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-T3JR3XB8',
   
   // Call Tracking
   PHONE_NUMBER: '(888) 888-8888',

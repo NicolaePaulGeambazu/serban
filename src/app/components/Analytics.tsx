@@ -3,8 +3,8 @@
 import Script from 'next/script'
 
 // Replace these with your actual tracking IDs
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX' // Replace with your GA4 Measurement ID
-const GTM_ID = 'GTM-XXXXXXX' // Replace with your GTM Container ID
+const GA_MEASUREMENT_ID = 'G-GELQMHJ1E2' // Replace with your GA4 Measurement ID
+const GTM_ID = 'GTM-T3JR3XB8' // Replace with your GTM Container ID
 
 export default function Analytics() {
   return (

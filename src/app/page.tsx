@@ -1,5 +1,14 @@
+'use client'
+
 import { Phone, Shield, Calculator, Leaf, Clock, CheckCircle } from 'lucide-react'
 import Header from './components/Header'
+
+declare global {
+  interface Window {
+    gtag: (...args: unknown[]) => void
+    dataLayer: unknown[]
+  }
+}
 
 export default function Home() {
   const phoneNumber = "(888) 888-8888"
@@ -33,6 +42,25 @@ export default function Home() {
                 id="hero-phone-call"
                 href={`tel:${phoneNumber.replace(/\D/g, '')}`}
                 className="flex items-center justify-center gap-3 bg-red-600 text-white text-2xl font-bold py-4 px-8 rounded-lg hover:bg-red-700 transition-colors w-full lg:w-auto"
+                onClick={() => {
+                  // Track phone call conversion
+                  if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('event', 'phone_call', {
+                      event_category: 'conversion',
+                      event_label: 'hero_cta',
+                      value: 50
+                    });
+                  }
+                  // Also send to dataLayer for GTM
+                  if (typeof window !== 'undefined' && window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'phone_call_conversion',
+                      phone_number: phoneNumber,
+                      source: 'hero',
+                      conversion_value: 50
+                    });
+                  }
+                }}
               >
                 <Phone className="w-8 h-8" />
                 {phoneNumber}
