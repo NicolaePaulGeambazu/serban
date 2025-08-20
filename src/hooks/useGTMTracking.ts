@@ -4,8 +4,8 @@ import { TRACKING_CONFIG, TRACKING_EVENTS, USER_JOURNEY_STEPS } from '@/app/conf
 // Extend Window interface to include GTM dataLayer
 declare global {
   interface Window {
-    dataLayer: any[]
-    gtag: (...args: any[]) => void
+    dataLayer: unknown[]
+    gtag: (...args: unknown[]) => void
   }
 }
 
@@ -14,7 +14,7 @@ interface BaseEventParams {
   event_category?: string
   event_label?: string
   value?: number
-  custom_parameters?: Record<string, any>
+  custom_parameters?: Record<string, unknown>
 }
 
 interface PhoneCallEventParams extends BaseEventParams {
@@ -60,7 +60,7 @@ export const useGTMTracking = () => {
   }, [])
 
   // Generic event tracking function
-  const trackEvent = useCallback((eventName: string, parameters: Record<string, any> = {}) => {
+  const trackEvent = useCallback((eventName: string, parameters: Record<string, unknown> = {}) => {
     if (typeof window === 'undefined') return
 
     initializeDataLayer()
@@ -235,7 +235,7 @@ export const useGTMTracking = () => {
   }, [initializeDataLayer])
 
   // Enhanced ecommerce tracking (for future use)
-  const trackPurchase = useCallback((transactionId: string, value: number, items: any[] = []) => {
+  const trackPurchase = useCallback((transactionId: string, value: number, items: unknown[] = []) => {
     trackEvent('purchase', {
       event_category: TRACKING_CONFIG.EVENT_CATEGORIES.CONVERSION,
       transaction_id: transactionId,

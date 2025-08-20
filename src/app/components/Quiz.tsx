@@ -1,11 +1,7 @@
 'use client'
 
 import { useState, useEffect, ChangeEvent } from 'react'
-import { CheckCircle } from 'lucide-react';
-import { Phone } from 'lucide-react';
-import { Star } from 'lucide-react';
-import { Clock } from 'lucide-react';
-import { Shield } from 'lucide-react';
+import { CheckCircle, Phone, Clock, Shield } from 'lucide-react';
 
 interface QuizData {
   income: string
