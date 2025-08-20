@@ -64,7 +64,7 @@ Track phone call interactions with source attribution.
 
 ```typescript
 trackPhoneCall({
-  phone_number: '(888) 888-8888',
+  phone_number: '+1 (888) 217-57-91',
   source: 'hero', // 'header' | 'hero' | 'quiz_success' | 'service' | 'other'
   service_type: 'bed_bug_treatment'
 })

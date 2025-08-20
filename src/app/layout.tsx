@@ -14,10 +14,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Local Pest Control - Free Inspection | (888) 888-8888',
+    default: 'Local Pest Control - Free Inspection | +1 (888) 217-57-91',
     template: '%s | Serban Local Services'
   },
-  description: 'Local pest control experts serving your area. Free inspection. Call (888) 888-8888 now for immediate service. Licensed and insured professionals.',
+  description: 'Local pest control experts serving your area. Free inspection. Call +1 (888) 217-57-91 now for immediate service. Licensed and insured professionals.',
   keywords: [
     'pest control',
     'local pest control',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Local Pest Control - Free Inspection',
-    description: 'Local pest control experts serving your area. Free inspection. Call (888) 888-8888 now for immediate service.',
+    description: 'Local pest control experts serving your area. Free inspection. Call +1 (888) 217-57-91 now for immediate service.',
     url: 'https://serban-affiliate.com',
     siteName: 'Serban Local Services',
     images: [
@@ -106,7 +106,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#dc2626" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="description" content="Local pest control experts serving your area. Free inspection. Call (888) 888-8888 now for immediate service. Licensed and insured professionals." />
+        <meta name="description" content="Local pest control experts serving your area. Free inspection. Call +1 (888) 217-57-91 now for immediate service. Licensed and insured professionals." />
         
         {/* Schema.org structured data */}
         <script

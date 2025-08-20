@@ -11,7 +11,7 @@ declare global {
 }
 
 export default function Home() {
-  const phoneNumber = "(888) 888-8888"
+  const phoneNumber = "+1 (888) 217-57-91"
   
   return (
     <div className="min-h-screen bg-white">

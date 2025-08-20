@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default function CallbackPage() {
-  const phoneNumber = "(888) 888-8888"
+  const phoneNumber = "+1 (888) 217-57-91"
   
   return (
     <div className="min-h-screen bg-gray-50">

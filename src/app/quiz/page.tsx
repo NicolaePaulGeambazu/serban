@@ -2,7 +2,7 @@ import Quiz from '../components/Quiz';
 import Header from '../components/Header'
 
 export default function QuizPage() {
-  const phoneNumber = "(888) 888-8888"
+  const phoneNumber = "+1 (888) 217-57-91"
   return (
     <div className="min-h-screen bg-white">
       <Header phoneNumber={phoneNumber} logoLink="/test-variant-b" />

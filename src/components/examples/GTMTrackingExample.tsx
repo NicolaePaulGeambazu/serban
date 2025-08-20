@@ -35,7 +35,7 @@ export default function GTMTrackingExample() {
   // Example phone call tracking
   const handlePhoneCall = () => {
     trackPhoneCall({
-      phone_number: '(888) 888-8888',
+      phone_number: '+1 (888) 217-57-91',
       source: 'hero',
       service_type: 'general_pest_control'
     })

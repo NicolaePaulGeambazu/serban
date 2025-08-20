@@ -164,7 +164,7 @@ function() {
 // Phone Call Event
 Event Name: phone_call
 Parameters:
-- phone_number: (888) 888-8888
+- phone_number: +1 (888) 217-57-91
 - source: {{Phone Call Source}}
 - event_category: conversion
 

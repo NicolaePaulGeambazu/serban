@@ -134,7 +134,7 @@ const getPhoneNumber = (source) => {
   const phoneNumbers = {
     'google_ads': '(888) 888-8889',
     'facebook_ads': '(888) 888-8890',
-    'default': '(888) 888-8888'
+    'default': '+1 (888) 217-57-91'
   }
   return phoneNumbers[source] || phoneNumbers.default
 }

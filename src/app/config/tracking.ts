@@ -7,7 +7,7 @@ export const TRACKING_CONFIG = {
   GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-T3JR3XB8',
   
   // Call Tracking
-  PHONE_NUMBER: '(888) 888-8888',
+  PHONE_NUMBER: '+1 (888) 217-57-91',
   
   // Conversion Goals
   CONVERSION_GOALS: {
@@ -73,11 +73,11 @@ export const USER_JOURNEY_STEPS = {
 export const CALL_TRACKING = {
   // Dynamic phone numbers for different sources
   PHONE_NUMBERS: {
-    DEFAULT: '(888) 888-8888',
+    DEFAULT: '+1 (888) 217-57-91',
     GOOGLE_ADS: '(888) 888-8889',
     FACEBOOK_ADS: '(888) 888-8890',
-    ORGANIC_SEARCH: '(888) 888-8888',
-    DIRECT_TRAFFIC: '(888) 888-8888'
+    ORGANIC_SEARCH: '+1 (888) 217-57-91',
+    DIRECT_TRAFFIC: '+1 (888) 217-57-91'
   },
   
   // Call tracking parameters

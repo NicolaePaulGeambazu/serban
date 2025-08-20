@@ -97,7 +97,7 @@ serban/
 Create a `.env.local` file:
 ```env
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
-NEXT_PUBLIC_PHONE_NUMBER=(888) 888-8888
+NEXT_PUBLIC_PHONE_NUMBER=+1 (888) 217-57-91
 NEXT_PUBLIC_SERVICE_AREA="Serving Your City and surrounding area"
 ```
 

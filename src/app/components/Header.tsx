@@ -8,7 +8,7 @@ interface HeaderProps {
   logoLink?: string
 }
 
-export default function Header({ phoneNumber = "(888) 888-8888", logoLink = "/test-variant-b" }: HeaderProps) {
+export default function Header({ phoneNumber = "+1 (888) 217-57-91", logoLink = "/test-variant-b" }: HeaderProps) {
   return (
     <header className="sticky top-0  bg-red-600 z-50 w-full  border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
