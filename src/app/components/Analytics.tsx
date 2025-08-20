@@ -55,7 +55,7 @@ export default function Analytics() {
 }
 
 // Analytics tracking functions using ID selectors for GTM
-export const trackEvent = (eventName: string, parameters: Record<string, any> = {}) => {
+export const trackEvent = (eventName: string, parameters: Record<string, unknown> = {}) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, parameters)
   }
@@ -87,7 +87,7 @@ export const trackFormSubmission = (formName: string, step?: number) => {
   })
 }
 
-export const trackQuizCompletion = (step: number, quizData: any) => {
+export const trackQuizCompletion = (step: number, quizData: Record<string, unknown>) => {
   trackEvent('quiz_completion', {
     step: step,
     income_range: quizData.income,
@@ -109,7 +109,7 @@ export const trackServicePageView = (serviceName: string) => {
 // Add gtag to window object
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
-    dataLayer: any[]
+    gtag: (...args: unknown[]) => void
+    dataLayer: unknown[]
   }
 } 
