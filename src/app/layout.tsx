@@ -88,10 +88,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preload critical resources */}
-        <link rel="preload" href="/favicon.ico" as="image" type="image/x-icon" />
-        <link rel="preload" href="/apple-touch-icon.png" as="image" type="image/png" />
-        
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
@@ -101,8 +97,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" />
         
         {/* Icons and manifest */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Meta tags */}

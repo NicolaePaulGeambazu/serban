@@ -17,7 +17,15 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/favicon.ico') ||
     pathname.startsWith('/robots.txt') ||
     pathname.startsWith('/manifest.json') ||
-    pathname.startsWith('/vercel.svg')
+    pathname.startsWith('/vercel.svg') ||
+    pathname.startsWith('/logo.') ||
+    pathname.startsWith('/icon-') ||
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.jpeg') ||
+    pathname.endsWith('.svg') ||
+    pathname.endsWith('.webp') ||
+    pathname.endsWith('.gif')
   ) {
     return NextResponse.next();
   }
@@ -75,5 +83,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|favicon.ico|robots.txt|manifest.json|vercel.svg).*)'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|robots.txt|manifest.json|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.gif).*)' 
+  ],
 }; 

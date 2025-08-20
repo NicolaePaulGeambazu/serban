@@ -12,12 +12,10 @@ export default function Header({ phoneNumber = "(888) 888-8888" }: HeaderProps) 
         <div className="flex justify-between items-center h-16">
           {/* Logo on the left */}
           <div className="flex items-center">
-            <Image 
-              src="/logo.jpeg" 
+            <img 
+              src="/logo.png" 
               alt="Local Pest Control" 
-              width={140} 
-              height={40} 
-              className="object-contain"
+              className="h-10 w-auto object-contain max-w-[140px]"
             />
           </div>
           
