@@ -90,30 +90,7 @@ export default function Quiz() {
         <h3 className="text-2xl font-bold text-green-600 mb-2">🎉 Congratulations!</h3>
         <p className="text-lg text-black mb-2 font-semibold">You Are Pre-Qualified!</p>
         <p className="text-gray-600 mb-4">Based on your information, you meet our eligibility requirements.</p>
-        
-        {/* Urgency Message */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-          <div className="flex items-center gap-2 mb-2">
-            <Clock className="w-5 h-5 text-yellow-600" />
-            <span className="font-semibold text-yellow-800">Limited Time Offer</span>
-          </div>
-          <p className="text-sm text-yellow-700">Call now to lock in your special rate before it expires!</p>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="flex items-center justify-center gap-4 mb-6 text-sm text-gray-600">
-          <div className="flex items-center gap-1">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span>4.9/5</span>
-          </div>
-          <span>•</span>
-          <span>10,000+ Happy Customers</span>
-        </div>
-
+       
         <a 
           id="quiz-success-phone-call"
           href={`tel:${phoneNumber.replace(/\D/g, '')}`}
@@ -123,7 +100,7 @@ export default function Quiz() {
           Call Now: {phoneNumber}
         </a>
         
-        <p className="text-xs text-gray-500 mt-3">No obligation • Free consultation</p>
+        <p className="text-xs text-gray-500 mt-3">No obligation • Free inspection</p>
       </div>
     )
   }
