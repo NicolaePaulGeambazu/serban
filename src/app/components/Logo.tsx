@@ -19,9 +19,9 @@ export default function Logo({ className = '', size = 'md' }: LogoProps) {
         alt="Callhomefixer Logo" 
         width={120}
         height={100}
-       
+        className={`${sizeClasses[size]} ${className}`}
         priority
       />
- 
+
   )
 } 

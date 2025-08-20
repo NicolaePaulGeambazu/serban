@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, ChangeEvent, KeyboardEvent } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 import { CheckCircle } from 'lucide-react';
 import { Phone } from 'lucide-react';
 import { Star } from 'lucide-react';
@@ -186,8 +186,8 @@ export default function Quiz() {
       {step === 2 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-black mb-2">What's your ZIP code?</h3>
-            <p className="text-sm text-gray-600 mb-4">We'll check if we service your area</p>
+            <h3 className="text-xl font-bold text-black mb-2">What&apos;s your ZIP code?</h3>
+            <p className="text-sm text-gray-600 mb-4">We&apos;ll check if we service your area</p>
             <input
               id="quiz-zipcode-input"
               type="text"
@@ -204,7 +204,7 @@ export default function Quiz() {
               pattern="[0-9]*"
             />
             {zipError && <p className="text-xs text-red-600 mt-2 text-center" role="alert">{zipError}</p>}
-            <p className="text-xs text-gray-500 mt-2 text-center">We'll verify service availability in your area</p>
+            <p className="text-xs text-gray-500 mt-2 text-center">We&apos;ll verify service availability in your area</p>
           </div>
         </div>
       )}
