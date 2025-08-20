@@ -4,11 +4,11 @@ import Header from '../components/Header'
 
 export const metadata: Metadata = {
   title: 'Schedule a Callback - Free Pest Control Inspection',
-  description: 'Schedule a callback for your free pest control inspection. We\'ll call you back within 30 minutes. No obligation, professional service.',
+  description: 'Schedule a callback for your free pest control inspection. We\'ll call you back. No obligation, professional service.',
   keywords: ['pest control callback', 'free inspection', 'schedule inspection', 'pest control quote'],
   openGraph: {
     title: 'Schedule a Callback - Free Pest Control Inspection',
-    description: 'Schedule a callback for your free pest control inspection. We\'ll call you back within 30 minutes.',
+    description: 'Schedule a callback for your free pest control inspection. We\'ll call you back.',
   },
 }
 
@@ -27,12 +27,8 @@ export default function CallbackPage() {
               Schedule Your Free Callback
             </h1>
             <p className="text-xl text-gray-600 mb-6">
-              We&apos;ll call you back within 30 minutes for your free pest inspection
+              We&apos;ll call you back for your free pest inspection
             </p>
-            <div className="flex items-center justify-center gap-2 text-green-600 font-semibold">
-              <Clock className="w-5 h-5" />
-              <span>30-Minute Response Guarantee</span>
-            </div>
           </div>
 
           {/* Form Section */}

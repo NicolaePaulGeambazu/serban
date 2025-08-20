@@ -117,18 +117,7 @@ export default function Quiz() {
         <p className="text-gray-600 mb-4">Takes less than 60 seconds • No credit check required</p>
         
         {/* Social Proof */}
-        <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
-          <div className="flex items-center gap-1">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span>4.9/5</span>
-          </div>
-          <span>•</span>
-          <span>10,000+ Reviews</span>
-        </div>
+   
       </div>
 
       {/* Progress Bar */}

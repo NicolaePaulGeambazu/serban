@@ -115,8 +115,8 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Need a Callback Instead?
           </h2>
-                      <p className="text-lg text-gray-600 mb-6">
-              Prefer to schedule a callback? Fill out our quick form and we&apos;ll call you back within 30 minutes.
+            <p className="text-lg text-gray-600 mb-6">
+                      Due to high demand, we recommend you call us directly since we might not be able to call you back.
             </p>
           <a 
             href="/callback"
@@ -161,7 +161,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2025 Local Pest Control. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Local Pest Control. All rights reserved.</p>
           </div>
         </div>
       </footer>

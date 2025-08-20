@@ -30,15 +30,20 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Forced variant via URL parameter
-  const forcedVariant = searchParams.get('variant');
-  if (forcedVariant === 'A' || forcedVariant === 'B') {
-    let redirectUrl = pathname;
-    if (forcedVariant === 'A') {
-      redirectUrl = '/quiz';
-    }
-    const response = NextResponse.redirect(new URL(redirectUrl, request.url));
-    response.cookies.set(SPLIT_COOKIE, forcedVariant, {
+  // Handle variant testing URLs
+  if (pathname === '/test-variant-a' || searchParams.get('variant') === 'A') {
+    const response = NextResponse.redirect(new URL('/quiz', request.url));
+    response.cookies.set(SPLIT_COOKIE, 'A', {
+      maxAge: COOKIE_MAX_AGE,
+      path: '/',
+      sameSite: 'lax',
+    });
+    return response;
+  }
+
+  if (pathname === '/test-variant-b' || searchParams.get('variant') === 'B') {
+    const response = NextResponse.redirect(new URL('/', request.url));
+    response.cookies.set(SPLIT_COOKIE, 'B', {
       maxAge: COOKIE_MAX_AGE,
       path: '/',
       sameSite: 'lax',
