@@ -1,24 +1,29 @@
+'use client'
+
 import { Phone } from 'lucide-react'
 import Image from 'next/image'
 
 interface HeaderProps {
   phoneNumber?: string
+  logoLink?: string
 }
 
-export default function Header({ phoneNumber = "(888) 888-8888" }: HeaderProps) {
+export default function Header({ phoneNumber = "(888) 888-8888", logoLink = "/test-variant-b" }: HeaderProps) {
   return (
     <header className="sticky top-0  bg-red-600 z-50 w-full  border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo on the left */}
           <div className="flex items-center">
-            <Image 
-              src="/logo.png" 
-              alt="Local Pest Control" 
-              width={140}
-              height={40}
-              className="h-10 w-auto object-contain max-w-[140px]"
-            />
+            <a href={logoLink} className="flex items-center">
+              <Image 
+                src="/logo.png" 
+                alt="Local Pest Control" 
+                width={140}
+                height={40}
+                className="h-10 w-auto object-contain max-w-[140px] hover:opacity-80 transition-opacity"
+              />
+            </a>
           </div>
           
             <a 

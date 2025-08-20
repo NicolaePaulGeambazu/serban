@@ -15,7 +15,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-white">
-      <Header phoneNumber={phoneNumber} />
+      <Header phoneNumber={phoneNumber} logoLink="/test-variant-b" />
 
       {/* Main Hero Section */}
       <main className="container mx-auto px-4 py-8">

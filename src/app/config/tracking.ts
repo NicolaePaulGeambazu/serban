@@ -1,7 +1,7 @@
 // Tracking Configuration
 export const TRACKING_CONFIG = {
   // Google Analytics 4
-  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-GELQMHJ1E2',
+  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-JQR27P5C2W',
   
   // Google Tag Manager
   GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-T3JR3XB8',
