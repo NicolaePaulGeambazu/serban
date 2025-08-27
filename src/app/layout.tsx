@@ -14,10 +14,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Local Pest Control - Free Inspection | +1 (888) 217-57-91',
+    default: 'Local Pest Control - Schedule Inspection | +1 (888) 217-57-91',
     template: '%s | Serban Local Services'
   },
-  description: 'Local pest control experts serving your area. Free inspection. Call +1 (888) 217-57-91 now for immediate service. Licensed and insured professionals.',
+  description: 'Local pest control experts serving your area. Schedule Inspection. Call +1 (888) 217-57-91 now for immediate service. Licensed and insured professionals.',
   keywords: [
     'pest control',
     'local pest control',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Local Pest Control - Free Inspection',
-    description: 'Local pest control experts serving your area. Free inspection. Call +1 (888) 217-57-91 now for immediate service.',
+    title: 'Local Pest Control - Schedule Inspection',
+    description: 'Local pest control experts serving your area. Schedule Inspection. Call +1 (888) 217-57-91 now for immediate service.',
     url: 'https://serban-affiliate.com',
     siteName: 'Serban Local Services',
     images: [
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Local Pest Control - Free Inspection',
-    description: 'Local pest control experts serving your area. Free inspection.',
+    title: 'Local Pest Control - Schedule Inspection',
+    description: 'Local pest control experts serving your area. Schedule Inspection.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -106,7 +106,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#dc2626" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="description" content="Local pest control experts serving your area. Free inspection. Call +1 (888) 217-57-91 now for immediate service. Licensed and insured professionals." />
+        <meta name="description" content="Local pest control experts serving your area. Schedule Inspection. Call +1 (888) 217-57-91 now for immediate service. Licensed and insured professionals." />
         
         {/* Schema.org structured data */}
         <script
@@ -116,7 +116,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Local Pest Control",
-              "description": "Local pest control experts serving your area with free inspections.",
+              "description": "Local pest control experts serving your area with Schedule Inspections.",
               "url": "https://serban-affiliate.com",
               "telephone": "+1-888-888-8888",
               "address": {

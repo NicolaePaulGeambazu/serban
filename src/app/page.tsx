@@ -1,6 +1,7 @@
 'use client'
 
 import { Phone, Shield, Calculator, Leaf, Clock, CheckCircle } from 'lucide-react'
+import { useEffect } from 'react'
 import Header from './components/Header'
 
 declare global {
@@ -12,6 +13,13 @@ declare global {
 
 export default function Home() {
   const phoneNumber = "+1 (888) 217-57-91"
+  
+  useEffect(() => {
+    const yearElement = document.getElementById('current-year')
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear().toString()
+    }
+  }, [])
   
   return (
     <div className="min-h-screen bg-white">
@@ -27,10 +35,8 @@ export default function Home() {
             </h1>
             
             <h2 className="text-2xl lg:text-3xl font-bold text-red-600">
-              Call For A Free Pest Inspection
+              Call to book your Pest Inspection
             </h2>
-            
-            
             
             <p className="text-lg text-gray-700 leading-relaxed">
               Local Pest Control Pros specialized in residential treatments for Ants, Spiders, Cockroaches, House Crickets, Earwigs, Silverfish, Clothes Moths, Centipedes, Millipedes, Termites
@@ -74,9 +80,7 @@ export default function Home() {
               </div>
             </div>
           </div>
- 
         </div>
- 
 
         {/* Feature Icons Section */}
         <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -92,7 +96,7 @@ export default function Home() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
               <Calculator className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900">FREE INSPECTION</h3>
+            <h3 className="text-xl font-bold text-gray-900">Schedule Inspection</h3>
             <p className="text-gray-600">No obligation quotes and transparent pricing</p>
           </div>
           
@@ -125,7 +129,7 @@ export default function Home() {
                 <Clock className="w-10 h-10 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900">2. Schedule Service</h3>
-              <p className="text-gray-600">Book your free inspection at your convenience</p>
+              <p className="text-gray-600">Book your inspection at your convenience</p>
             </div>
             
             <div className="space-y-4">
@@ -143,9 +147,9 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Need a Callback Instead?
           </h2>
-            <p className="text-lg text-gray-600 mb-6">
-                      Due to high demand, we recommend you call us directly since we might not be able to call you back.
-            </p>
+          <p className="text-lg text-gray-600 mb-6">
+            Due to high demand, we recommend you call us directly since we might not be able to call you back.
+          </p>
           <a 
             href="/callback"
             className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition-colors"
@@ -154,8 +158,6 @@ export default function Home() {
             <Clock className="w-5 h-5" />
           </a>
         </div>
-
-        
 
         {/* Disclaimer */}
         <div className="mt-16 bg-gray-100 rounded-lg p-6">
@@ -183,13 +185,13 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-4">Contact</h3>
               <div className="space-y-2 text-gray-300">
                 <p>Phone: {phoneNumber}</p>
-                <p>Free Inspection</p>
+                <p>Schedule Inspection</p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; {new Date().getFullYear()} Local Pest Control. All rights reserved.</p>
+            <p>&copy; <span id="current-year" suppressHydrationWarning>2024</span> Local Pest Control. All rights reserved.</p>
           </div>
         </div>
       </footer>

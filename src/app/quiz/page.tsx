@@ -25,13 +25,13 @@ export default function QuizPage() {
               <h3 className="text-xl font-bold mb-4">Contact</h3>
               <div className="space-y-2 text-gray-300">
                 <p>Phone: {phoneNumber}</p>
-                <p>Free Inspection</p>
+                <p>Schedule Inspection</p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2025 Local Pest Control. All rights reserved.</p>
+            <p>&copy; <span suppressHydrationWarning>2025</span> Local Pest Control. All rights reserved.</p>
           </div>
         </div>
       </footer>

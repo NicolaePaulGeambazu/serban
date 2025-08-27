@@ -5,7 +5,7 @@ import Header from '../components/Header'
 export const metadata: Metadata = {
   title: 'Schedule a Callback - Free Pest Control Inspection',
   description: 'Schedule a callback for your free pest control inspection. We\'ll call you back. No obligation, professional service.',
-  keywords: ['pest control callback', 'free inspection', 'schedule inspection', 'pest control quote'],
+  keywords: ['pest control callback', 'Schedule Inspection', 'schedule inspection', 'pest control quote'],
   openGraph: {
     title: 'Schedule a Callback - Free Pest Control Inspection',
     description: 'Schedule a callback for your free pest control inspection. We\'ll call you back.',
@@ -195,7 +195,7 @@ export default function CallbackPage() {
             </p>
             <div className="text-gray-300">
               <p>Phone: {phoneNumber}</p>
-              <p>Free Inspection</p>
+              <p>Schedule Inspection</p>
             </div>
           </div>
           

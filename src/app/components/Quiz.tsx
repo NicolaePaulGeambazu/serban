@@ -96,7 +96,7 @@ export default function Quiz() {
           Call Now: {phoneNumber}
         </a>
         
-        <p className="text-xs text-gray-500 mt-3">No obligation • Free inspection</p>
+        <p className="text-xs text-gray-500 mt-3">No obligation • Schedule Inspection</p>
       </div>
     )
   }
@@ -181,7 +181,7 @@ export default function Quiz() {
                 const value = e.target.value.replace(/\D/g, '').slice(0, 5)
                 handleInputChange('zipcode', value)
               }}
-              placeholder="Enter your 5-digit ZIP code"
+              placeholder="Enter your ZIP code"
               className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-red-600 focus:outline-none text-black text-center text-lg font-medium focus:ring-2 focus:ring-red-500"
               maxLength={5}
               aria-label="ZIP code"
